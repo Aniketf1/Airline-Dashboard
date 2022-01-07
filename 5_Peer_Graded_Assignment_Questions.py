@@ -26,9 +26,7 @@ airline_data =  pd.read_csv('https://cf-courses-data.s3.us.cloud-object-storage.
 year_list = [i for i in range(2005, 2021, 1)]
 
 """Compute graph data for creating yearly airline performance report 
-
 Function that takes airline data as input and create 5 dataframes based on the grouping condition to be used for plottling charts and grphs.
-
 Argument:
      
     df: Filtered dataframe
@@ -51,9 +49,7 @@ def compute_data_choice_1(df):
 
 
 """Compute graph data for creating yearly airline delay report
-
 This function takes in airline data and selected year as an input and performs computation for creating charts and plots.
-
 Arguments:
     df: Input airline data.
     
@@ -75,7 +71,7 @@ app.layout = html.Div(children=[
                                 # TASK1: Add title to the dashboard
                                 # Enter your code below. Make sure you have correct formatting.
                                  html.H1("US Domestic Airline Flights Performance",
-                                        style={"textAllign":'center','color':'#503D36','font-size':'24'}) 
+                                        style={"textAllign":'center','color':'#503D36','font-size':'24'}), 
                                 # REVIEW2: Dropdown creation
                                 # Create an outer division 
                                 html.Div([
@@ -118,12 +114,12 @@ app.layout = html.Div(children=[
                                 
                                 # Add Computed graphs
                                 # REVIEW3: Observe how we add an empty division and providing an id that will be updated during callback
-                                html.Div([ ], id='plot1'),
+                                   html.Div([ ], id='plot1'),
     
-                                html.Div([
-                                        html.Div([ ], id='plot2'),
-                                        html.Div([ ], id='plot3')
-                                ], style={'display': 'flex'}),
+                                        html.Div([
+                                            html.Div([ ], id='plot2'),
+                                            html.Div([ ], id='plot3')
+                                            ], style={'display': 'flex'}),
                                 
                                 # TASK3: Add a division with two empty divisions inside. See above disvision for example.
                                 # Enter your code below. Make sure you have correct formatting.
@@ -137,16 +133,16 @@ app.layout = html.Div(children=[
 
 # Callback function definition
 # TASK4: Add 5 ouput components
-[Output(component_id='plot1', component_property='children'),
- Output(component_id='plot2', component_property='children'),
- Output(component_id='plot3', component_property='children'),
- Output(component_id='plot4', component_property='children'),
- Output(component_id='plot5', component_property='children')]
+
 
 # Enter your code below. Make sure you have correct formatting.
-@app.callback(
+@app.callback([Output(component_id='plot1', component_property='children'),
+               Output(component_id='plot2', component_property='children'),
+               Output(component_id='plot3', component_property='children'),
+               Output(component_id='plot4', component_property='children'),
+               Output(component_id='plot5', component_property='children')]
                [Input(component_id='input-type', component_property='value'),
-                Input(component_id='input-year', component_property='value')],
+               Input(component_id='input-year', component_property='value')],
                # REVIEW4: Holding output state till user enters all the form information. In this case, it will be chart type and year
                [State("plot1", 'children'), State("plot2", "children"),
                 State("plot3", "children"), State("plot4", "children"),
