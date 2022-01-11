@@ -78,10 +78,13 @@ app.layout = html.Div(children=[
                                 # REVIEW2: Dropdown creation
                                 # Create an outer division 
                                 html.Div([
+                                    html.H1("US Domestic Airline Flights Performance",
+                                        style={
+                                        'textAlign':'center',
+                                        'color':'#503D36','font-size':'24'}),
                                     # Add an division
                                     html.Div([
-                                        html.H1("US Domestic Airline Flights Performance",
-                                        style={"textAllign":'center','color':'#503D36','font-size':'24'}),
+                                        
                                         # Create an division for adding dropdown helper text for report type
                                         html.Div(
                                             [
