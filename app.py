@@ -220,6 +220,4 @@ def get_graph(chart, year, children1, children2, c3, c4, c5):
                    dcc.Graph(figure=late_fig)]
 
 
-# Run the app
-if __name__ == '__main__':
-    app.run_server()
+
